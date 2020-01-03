@@ -1,0 +1,44 @@
+.content {
+    height: 626px;
+    width: 95%;
+    position: fixed;
+    z-index: 1;
+    padding-left: 50px;
+    padding-right: 100px;
+    top: 150px;
+     left: 170px;
+    background-color:#e6e6e6;
+    overflow-x: hidden;
+    overflow: auto !important;
+}
+
+.content h3{
+  margin-top: 50px;
+  margin-left: 500px;
+  font-size: 40px;
+}
+
+#table-content{
+  border-collapse: collapse;
+  width: 80%;
+  margin-top: 50px;
+  margin-left: 30px;
+  margin-right: 100px;
+}
+#table-content td, #table-content th{
+  border: 1px solid #5DADE2;
+  text-align: center;
+  font-size: 25px;
+
+}
+#table-content th{
+  padding: 10px;
+  background-color: #5DADE2;
+
+}
+
+.button{
+  margin: 5px;
+  padding: 10px 16px;
+  background-color: #5DADE2;
+}

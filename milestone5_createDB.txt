@@ -1,0 +1,102 @@
+ use career-fair
+
+db.createCollection("users")
+
+db.createCollection("connections")
+
+db.createCollection("user_profiles")
+
+db.users.insert({
+  UserID: 1,
+  firstName: "Pranay",
+  lastName: "Jain",
+  email: "pranayjain75@gmail.com",
+  password: "bdf3fd16a8290e1e1cf8c4dc9f8debc737363f1c67ec69e004a38dc3cb5e51ceca978f760e23967b6cc5ff58e526aec3f7d8e5f7c1d8cce7b78ace9cff9e6272"
+});
+
+db.users.insert({
+UserID: 2,
+firstName: "Chirag",
+lastName: "Jain",
+email: "cjain4@uncc.edu",
+password: "b98d5e704c32f1690afb79eb2956a18559164681b1f417773f38b30b7bf534aa07e40fd90baa797422ebcf943314d4b1c643dc9a4f8bb586c0cb135c0c0ddac7"
+});
+
+db.connections.insert({
+  connectionId:1,
+  connectionName:"UNCC career fair",
+  connectionTopic:"Job Fair- Charlotte",
+  connectionDetails:"This career fair frequently hosts employers offering full-time employment, part-time employment, and internship opportunities across all majors.",
+  connectionTime:"Friday, October 11, 2019|8:00am - 4.00pm"
+});
+
+db.connections.insert({
+  connectionId:2,
+  connectionName:"NC Tech Career Fair",
+  connectionTopic:"Job Fair- Charlotte",
+  connectionDetails:"This career fair hosts admission representatives of historically more than 200 colleges and universities located in the North Carolina area, national programs, and international programs. Attendees may obtain information on a variety of graduate and professional programs as well as obtain advice about the application process.",
+  connectionTime:"Monday, September 29, 2019|12.00pm - 4.00pm"
+});
+
+db.connections.insert({
+  connectionId:3,
+  connectionName:"Business Fair",
+  connectionTopic:"Job Fair- Charlotte",
+  connectionDetails:"This career fair hosts employers from various industries including technology, engineering, government, business, healthcare and pharmaceuticals, and non-profit. The fair is open to graduate students and alumni of any major, and frequently features full-time employment, part-time employment, and internship opportunities.	",
+  connectionTime:"Tuesday, September 30, 2019|12.00pm-3.00pm"
+});
+
+db.connections.insert({
+  connectionId:4,
+  connectionName:"Colorado Careeer Fair",
+  connectionTopic:"Job Fair - Denver",
+  connectionDetails:"This career fair frequently hosts employers offering full-time employment, part-time employment, and internship opportunities across all majors.",
+  connectionTime:"Monday, October 6, 2019|11.00am-3.00pm"
+});
+
+db.connections.insert({
+  connectionId:5,
+  connectionName:"Denver Champions of Diversity Fair",
+  connectionTopic:"Job Fair - Denver",
+  connectionDetails:"This fair is Denvers only job fair during the summer semester. The fair hosts employers from various industries including Technology, Government, Health Care, Nonprofit, and Education. Employers frequently offer full-time employment, part-time employment, and internship opportunities.",
+  connectionTime:"Wednesday, October 24, 2019|12.00pm-2.00pm"
+});
+
+db.connections.insert({
+  connectionId:6,
+  connectionName:"Denver Tech Fair",
+  connectionTopic:"Job Fair - Denver",
+  connectionDetails:"This career fair frequently hosts employers offering full-time employment, part-time employment, and internship opportunities across all majors.",
+  connectionTime:"Tuesday, October 16, 2019|4.00pm-6.00pm"
+});
+
+db.user_profiles.insert({
+UserID: 1,
+UserProfileList:[{
+  connectionId: 1,
+  connectionName:"UNCC career fair",
+  connectionTopic:"Job Fair- Charlotte",
+  rsvp:"Yes"
+}]
+});
+
+db.user_profiles.insert({
+UserID: 2,
+UserProfileList:[{
+  connectionId: 1,
+  connectionName:"UNCC career fair",
+  connectionTopic:"Job Fair- Charlotte",
+  rsvp:"Yes"
+  }]
+});
+
+
+//USERNAME AND PASSWORD CREDENTIALS
+
+User 1
+Username : pranayjain75@gmail
+Password: pranay@123
+
+User 2
+Username : cjain4@uncc.edu
+Password: chirag@123

@@ -1,0 +1,18 @@
+
+.myfooter{
+  position: fixed;
+  width: 100%;
+	bottom: 0;
+  left: 0;
+  /* background-color: #f1f1f1; */
+  background-color: #5DADE2;
+  height: 7%;
+}
+.myfooter p{
+  text-align: center;
+  color: white;
+  font-weight: normal;
+  padding: 10px;
+  font-size: 20px;
+
+}

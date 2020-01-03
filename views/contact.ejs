@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>US Career Fair</title>
+    <link rel="stylesheet" type="text/css" href="/Assets/Stylesheets/contact.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/header.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/navigation.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/footer.css">
+  </head>
+  <body>
+    <% include ./partials/newConnheader.ejs %>
+    <% include ./partials/navigation.ejs %>
+    <h3>Contact Us</h3>
+    <div class="content">
+      <table class="table-content">
+        <tr>
+          <td><b>First Name</b></td>
+          <td><input type="text" name="firstname" class="newConn-text" placeholder="Enter your first name" value=""></td>
+        </tr>
+        <tr>
+          <td><b>Last Name</b></td>
+          <td><input type="text" name="lastname" class="newConn-text" placeholder="Enter your last name"></td>
+        </tr>
+        <tr>
+          <td><b>Email</b></td>
+          <td><input type="email" class="newConn-text" name="email" value="" placeholder="Enter your email ID"></td>
+        </tr>
+        <tr>
+          <td><b>Message</b></td>
+          <td><textarea name="form_message" class="contact-text" rows="4" cols="50" placeholder="Leave a message"></textarea></td>
+        </tr>
+        <td><form class="" action="index.html" method="post">
+              <button type="submit" class="btnCreate">Send Message</button>
+          </form><td>
+      </table>
+    </div>
+    <% include ./partials/footer.ejs %>
+  </body>
+</html>

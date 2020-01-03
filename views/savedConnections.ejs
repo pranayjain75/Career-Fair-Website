@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>US Career Fair</title>
+  <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/savedConnections.css">
+  <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/header.css">
+  <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/navigation.css">
+  <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/footer.css">
+</head>
+
+<body>
+  <% include ./partials/newConnheader.ejs %>
+  <% include ./partials/navigation.ejs %>
+  <div class="content">
+    <h3>Saved Connections</h3>
+    <form id="saveConnection" method="post" action="#">
+      <table id="table-content">
+        <tbody>
+          <tr>
+            <th>Connection</th>
+            <th>Category</th>
+            <th>Register?</th>
+            <th>Action</th>
+            <th>Action</th>
+          </tr>
+          <% if(savedConnection.length>0){%>
+          <% for(var i = 0;i<savedConnection.length;i++){%>
+          <tr>
+            <td><%=savedConnection[i].connectionName %><input type="hidden" name="viewConnections"
+                value="<%=savedConnection[i].connectionId %>">
+            </td>
+            <td><%=savedConnection[i].connectionTopic %> </td>
+            <td><%=savedConnection[i].rsvp %> </td>
+            <td>
+              <div class="button"
+                onclick="document.getElementById('saveConnection').setAttribute('action','/connection?action=update&connectionId=<%=savedConnection[i].connectionId%>');document.getElementById('saveConnection').submit();">
+                Update</div>
+            </td>
+            <td>
+              <div class="button"
+                onclick="document.getElementById('saveConnection').setAttribute('action','/savedConnections?action=delete&connection=<%= JSON.stringify(savedConnection[i]) %>');document.getElementById('saveConnection').submit();">
+                Delete</div>
+            </td>
+          </tr>
+          <% } %>
+          <% } else{ %>
+          <tr>
+            <td colspan="5">
+              No connections added yet
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <% include partials/footer.ejs %>
+
+</body>
+
+</html>

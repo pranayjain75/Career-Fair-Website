@@ -1,0 +1,48 @@
+.border{
+  border-right: 1px solid #0000A0;
+  font-size: 25px;
+  color: white;
+  display: inline-block;
+  background: none!important;
+  border: none;
+  float: left;
+  margin-left: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+    /* left: 50%; */
+}
+.border:hover{
+  color: #F51B25;
+}
+
+.myheader {
+
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    /* background-color: #47A5F3; */
+    background-color: #5DADE2;
+    padding: 10px 10px;
+    height: 150px;
+}
+
+.myheader a {
+    float: left;
+    color: white;
+    /* text-align: center; */
+    padding: 10px;
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 20px;
+}
+
+.header-right{
+  float: right;
+  padding: 25px 10px;
+  width: 50%;
+}
+.careerlogo{
+  height: 70px;
+  weight: 80px;
+}

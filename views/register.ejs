@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>US Career Fair</title>
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/register.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/header.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/navigation.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/footer.css">
+  </head>
+  <body>
+
+        <% include ./partials/header.ejs %>
+        <% include ./partials/navigation.ejs %>
+        <div class="content">
+            <form class="" method="POST" action="/register">
+            <h2>Register new User</h2>
+            <table class="table-content">
+                <tr>
+                    <td><label>First Name<span class="required">*</span></label></td>
+                    <td><input type="text" class="" name="firstName" id="firstName" placeholder="First Name" required></td>
+                </tr>
+                <tr>
+                    <td><label>Last Name<span class="required">*</span></label></td>
+                    <td><input type="text" class="" name="lastName" id="inputLastName" placeholder="Last Name" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Email<span class="required">*</span></label></td>
+                    <td><input type="email" class="" name="email" id="inputEmail" placeholder="Email" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Password<span class="required">*</span></label></td>
+                    <td><input type="password" class="" name="password" id="inputPassword" placeholder="Password" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Confirm Password<span class="required">*</span></label></td>
+                    <td><input type="password" class="" name="confirmPassword" id="inputConfirmPassword" placeholder="Confirm Password" required>
+                    </td>
+                </tr>
+                <% if(data.errorMessage!=undefined && data.errorMessage.length>0) {
+                    for (let index = 0; index < data.errorMessage.length; index++) {
+                        var element = JSON.stringify(data.errorMessage[index].msg);
+                        element = element.substr(1,element.length-2) %>
+                    <h6 class="error-div"><%=element%></h6>
+                <% }} %>
+                <tr>
+                    <td><button type="submit" class="btnCreate">Register</button></td>
+                </tr>
+            </table>
+          </form>
+          <% include ./partials/footer.ejs %>
+        </div>
+  </body>
+</html>

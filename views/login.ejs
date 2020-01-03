@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>US Career Fair</title>
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/loginpage.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/header.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/navigation.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/footer.css">
+  </head>
+  <body>
+
+        <% include ./partials/header.ejs %>
+        <% include ./partials/navigation.ejs %>
+        <div class="content">
+          <h2>Enter your login details</h2>
+            <form class="" action="/login" method="post">
+              <table class="table-content">
+              <tr>
+                <td><b>Username :</b></td>
+                <td><input type="text" name="username" value="" placeholder="Email Address" required></td>
+              </tr>
+              <tr>
+                <td><b>Password :</b></td>
+                <td><input type="password" name="password" value="" placeholder="Password" required></td>
+              </tr>
+              <tr>
+                <% if(data.errorMessage!=undefined) { %>
+                  <h3 style="color:red"><%=data.errorMessage%></h3>
+                   <% } %>
+                <td><input type="submit" class="btnCreate" value="Log In"></td>
+              </tr>
+          </table>
+          </form>
+
+        </div>
+        <% include ./partials/footer.ejs %>
+
+  </body>
+</html>

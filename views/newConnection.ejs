@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>US Career Fair</title>
+    <link rel="stylesheet" type="text/css" href="/Assets/Stylesheets/newConnection.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Stylesheets/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/header.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/navigation.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/footer.css">
+  </head>
+  <body>
+        <% include partials/newConnheader.ejs %>
+        <% include partials/navigation.ejs %>
+        <div class="content">
+
+
+
+          <form class="btn btn-create" action="/newConnection" method="post">
+          <table class="table-content">
+            <tr>
+              <td><b>Topic</b></td>
+              <td><input type="text" name="topic" class="newConn-text" placeholder="Topic" value="">
+                </td>
+            </tr>
+            <tr>
+              <td><b>Name</b></td>
+              <td><input type="text" name="name" class="newConn-text" placeholder="Name"></td>
+            </tr>
+            <tr>
+              <td><b>Details</b></td>
+              <td><textarea rows="4" cols="50" name="details" class="newConn-text"  placeholder="Description"></textarea></td>
+            </tr>
+            <tr>
+              <td><b>Where</b></td>
+              <td><input type="text" name="location" class="newConn-text" placeholder="Place"></td>
+            </tr>
+            <tr>
+              <td><b>When</b></td>
+              <td><input type="date" name="date" class="newConn-text"></td>
+            </tr>
+            <tr>
+              <td>
+                <% if(data.errorMessage!=undefined && data.errorMessage.length>0) {
+                            for (let index = 0; index < data.errorMessage.length; index++) {
+                                var element = JSON.stringify(data.errorMessage[index].msg);
+                                element = element.substr(1,element.length-2) %>
+                            <h3><%=element%></h3>
+                        <% }} %></td>
+            </tr>
+            <tr>
+              <td>
+                    <button type="submit" class="btnCreate">Create Connection</button>
+
+              </td>
+            </tr>
+          </table>
+          </form>
+
+
+
+
+        </div>
+        <% include partials/footer.ejs %>
+
+  </body>
+</html>

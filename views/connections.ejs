@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Categories Page</title>
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/connections.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/header.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/navigation.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/footer.css">
+  </head>
+  <body>
+    <% include ./partials/newConnheader.ejs %>
+    <% include ./partials/navigation.ejs %>
+        <div class="category-content">
+          <h1>Events</h1>
+            <br>
+          <ul>
+            <% for(var i =0; i<categories.length;i++) {%>
+              <li class="li-category">
+                <p><%= categories[i] %></p>
+                  <ul class="ul-subcategory">
+                    <% connections.forEach(function(item){ %>
+                        <% if(item.connectionTopic === categories[i]) {%>
+                            <li><a href="/connection?connectionId=<%=item.connectionId %>"><%= item.connectionName %></a>
+                              <br>
+                              <% if(UserID === item.UserID) {%>
+                                <form id="updateandDelete" method="POST" action="#">
+                                  <div class="buttonUpdate" onclick="document.getElementById('updateandDelete').setAttribute('action','/editConnection?action=connectionUpdate&item=<%= JSON.stringify(item)%>');document.getElementById('updateandDelete').submit();">Update
+                                    </div>
+                                    <div class="buttonDelete" onclick="document.getElementById('updateandDelete').setAttribute('action','/editConnection?action=connectionDelete&connectionId=<%= JSON.stringify(item.connectionId)%>');document.getElementById('updateandDelete').submit();">Delete
+                                    </div>
+                                </form>
+                                <%}%>
+                            </li>
+                        <% } %>
+                    <% }); %>
+                  </ul>
+              </li>
+            <% } %>
+          </ul>
+
+        </div>
+  <% include ./partials/footer.ejs %>
+
+
+
+  </body>
+</html>

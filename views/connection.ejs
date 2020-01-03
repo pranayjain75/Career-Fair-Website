@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>US Career Fair</title>
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/connection.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/header.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/navigation.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/footer.css">
+  </head>
+  <body>
+    <% include ./partials/newConnheader.ejs %>
+    <% include ./partials/navigation.ejs %>
+        <div class="content">
+          <h3><%=connection.connectionName %></h3>
+          <div class="flex">
+            <% if(connection.connectionId<=6){ %>
+             <img class="techfair"  src="Assets/Images/<%= connection.connectionId %>.png" alt="tech fair">
+          <%  } else{ %>
+            <img class="techfair"  src="Assets/Images/3.png" alt="tech fair">
+          <%} %>
+
+            <p class="marginTop27">Hosted by North Carolina<br>Technology Association(NC Tech)<br><%= connection.connectionTime.substr(0,connection.connectionTime.indexOf("|")) %>
+              <br><%= connection.connectionTime.substr(connection.connectionTime.indexOf("|")+1, connection.connectionTime.length) %>
+            </p>
+
+  <div class="buttons ">
+      <form id="RSVP" method="POST" action="#" >
+      <table class="marginLeft80">
+      <tr>
+        <td>Register?<br><input type="hidden" name="viewConnections" value="<%= connection.connectionId %>"></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="buttonYes" onclick="document.getElementById('RSVP').setAttribute('action','/savedConnections?action=<%= (action===undefined || action==='')?'save':'updateProfile' %>&connection=<%= JSON.stringify(connection) %>&rsvp=Yes&viewConnections=<%= connection.connectionId %>');document.getElementById('RSVP').submit();">Yes
+
+          </div>
+          <div class="buttonNo" onclick="document.getElementById('RSVP').setAttribute('action','/savedConnections?action=<%= (action===undefined || action==='')?'save':'updateProfile' %>&connection=<%= JSON.stringify(connection) %>&rsvp=No&viewConnections=<%= connection.connectionId %>');document.getElementById('RSVP').submit();">No</div>
+        </td>
+      </tr>
+      </table>
+    </form>
+  </div>
+</div>
+
+<div class="conn-details">
+  <h2>Details</h2>
+  <p><%= connection.connectionDetails %></p>
+</div>
+</div>
+
+  <% include ./partials/footer.ejs %>
+  </body>
+</html>

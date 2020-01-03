@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>US Career Fair</title>
+    <link rel="stylesheet" type="text/css" href="/Assets/Stylesheets/editConnection.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/header.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/navigation.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Stylesheets/footer.css">
+  </head>
+  <body>
+
+        <% include partials/newConnheader.ejs %>
+        <% include partials/navigation.ejs %>
+        <div class="content">
+          <form id="newConn" method="POST" action="/updateUserConnection">
+            <p>
+              <input type="hidden" class="formdetails" name="connectionId" value="<%= data.connectionId%>"/>
+              <label class="formdetails">
+                                  Name:
+                                </label>
+                            <input type="text" class="formdetails" id="name" name="name" value="<%= data.connectionName %>" placeholder="name">
+              <%if(errorData.name){%>
+              <label class="errorMsg">
+                <%=errorData.name.msg %>
+              </label>
+              <%}%>
+            </p>
+            <p>
+              <label class="formdetails">
+                                 Topic:
+                               </label>
+                             <input type="text" class="formdetails" id="topic" name="topic" value="<%= data.connectionTopic %>" placeholder="topic">
+                             <%if(errorData.topic){%>
+                     <label class="errorMsg">
+                        <%=errorData.topic.msg %>
+                      </label>
+                      <%}%></p>
+                      <p>
+                        <label class="formdetails">
+                                            Details:
+                                          </label>
+                                      <textarea id="detail" class="formdetails" name="detail" placeholder="details" rows="4" cols="40"><%= data.connectionDetails %></textarea>
+                        <%if(errorData.detail){%>
+                <label class="errorMsg">
+                   <%=errorData.detail.msg %>
+                 </label>
+                 <%}%></p>
+                 <p>
+                   <label class="formdetails">
+                                       where:
+                                     </label>
+                                 <input type="text" class="formdetails" id="location" name="location" value="<%= data.connectionLocation %>" placeholder="location">
+                   <%if(errorData.location){%>
+           <label class="errorMsg">
+              <%=errorData.location.msg %>
+            </label>
+            <%}%></p>
+
+            <p>
+              <label class="formdetails">
+                                 When:
+                               </label>
+                           <input id="time" class="formdetails" name="time" value="<%= data.connectionTime %>" type="date">
+             <%if(errorData.time){%>
+     <label class="errorMsg">
+        <%=errorData.time.msg %>
+      </label>
+      <%}%></p>
+      <p><input class="btnCreate" type="submit" value="Update connection"/></p>
+          </form>
+        </div>
+        <% include partials/footer.ejs %>
+
+  </body>
+</html>
